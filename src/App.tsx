@@ -71,7 +71,7 @@ function App() {
 
       {/* Main content */}
       <main className="w-full relative z-10">
-        <Hero isDarkMode={isDarkMode} />
+        <Hero />
         <Services />
         <WhyChooseUs />
         <Pricing />

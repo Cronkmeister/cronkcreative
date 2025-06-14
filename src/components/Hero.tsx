@@ -1,16 +1,4 @@
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-
-interface HeroProps {
-  isDarkMode: boolean;
-}
-
-const Hero = ({ isDarkMode }: HeroProps) => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
+const Hero = () => {
   return (
     <div
       className="section-wrapper relative overflow-hidden"
@@ -23,7 +11,7 @@ const Hero = ({ isDarkMode }: HeroProps) => {
         <div className="w-full flex justify-start items-center pl-8 md:pl-16 lg:pl-24">
           <div className="w-full max-w-4xl p-16 rounded-3xl border-white/10 bg-white/5 backdrop-blur-sm shadow-sm text-left space-y-8">
             <h1 className="text-white/95 font-bold tracking-tight">
-              Enhance Your Digital Footprint
+              Build Your Digital Footprint
             </h1>
             <p className="max-w-2xl text-white/75">
               We help businesses and entrepreneurs build stunning websites and

@@ -69,7 +69,7 @@ const Navbar = () => {
     { name: "Why Choose Us", href: "#why-choose-us" },
     { name: "Pricing", href: "#pricing" },
     { name: "Portfolio", href: "#portfolio" },
-    { name: "Blog", href: "#blog" },
+    // { name: "Blog", href: "#blog" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -107,7 +107,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg text-white hover:text-white/80"
+            className="md:hidden px-4 py-2 rounded-md text-white bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm shadow transition-all duration-200"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <svg
@@ -136,7 +136,7 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
             className="md:hidden"
           >
-            <div className="px-4 pt-4 pb-6 space-y-3 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md rounded-xl shadow-lg mt-2">
+            <div className="px-4 pt-4 pb-6 space-y-3 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-xl shadow-2xl mt-2 border border-white/20">
               {navItems.map((item) => (
                 <a
                   key={item.name}
@@ -149,7 +149,7 @@ const Navbar = () => {
               ))}
               <a
                 href="#contact"
-                className="block w-full text-center px-6 py-2.5 rounded-full text-sm font-medium text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-200 mt-6"
+                className="block w-full text-center px-4 py-2 rounded-full text-sm font-semibold text-gray-900 dark:text-white bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm transition-all duration-200 mt-4 shadow"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Start Your Project

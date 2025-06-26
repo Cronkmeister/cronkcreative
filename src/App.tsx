@@ -7,7 +7,7 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import Pricing from "./components/Pricing";
 import Portfolio from "./components/Portfolio";
 import NoCodeHelp from "./components/NoCodeHelp";
-import Blog from "./components/Blog";
+// import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import StatsAndTestimonials from "./components/StatsAndTestimonials";
@@ -77,7 +77,7 @@ function App() {
         <Pricing />
         <Portfolio />
         <NoCodeHelp />
-        <Blog />
+        {/* <Blog /> */}
         <StatsAndTestimonials />
         <Contact />
       </main>

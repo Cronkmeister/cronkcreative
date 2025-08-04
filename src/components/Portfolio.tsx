@@ -3,6 +3,7 @@ import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 // import projects from "../data/projects.ts";
 import tality from "../assets/images/tality.png";
+import photosnap from "../assets/images/photosnap.png";
 import pomodoro from "../assets/images/pomodoro.png";
 import iconic from "../assets/images/iconic.png";
 import nasa from "../assets/images/nasa-project.png";
@@ -30,13 +31,13 @@ const projects = [
     website: "https://161designstudio.com/",
   },
   {
-    title: "Pomodoro App",
-    category: "App Development",
+    title: "Photosnap",
+    category: "Web Development",
     description:
-      "Creating a functional pomodoro web app with settings for changing time and design. Figma files courtesy of FrontEndMentor.io",
-    image: pomodoro,
-    tech: ["Nextjs", "Tailwind", "Vercel"],
-    website: "https://jcpomodoro.netlify.app/",
+      "A multi-page website for a photography company. Built with React, Tailwind and Netlify",
+    image: photosnap,
+    tech: ["React", "Tailwind", "Netlify"],
+    website: "https://photosnap-jc.netlify.app/",
   },
   {
     title: "Iconic Concierge",
@@ -46,6 +47,15 @@ const projects = [
     image: iconic,
     tech: ["Wordpress", "WPBakery", "Figma"],
     website: "https://www.iconic-concierge.com/",
+  },
+  {
+    title: "Pomodoro App",
+    category: "App Development",
+    description:
+      "Creating a functional pomodoro web app with settings for changing time and design. Figma files courtesy of FrontEndMentor.io",
+    image: pomodoro,
+    tech: ["Nextjs", "Tailwind", "Vercel"],
+    website: "https://jcpomodoro.netlify.app/",
   },
   {
     title: "NASA Project",
@@ -101,7 +111,7 @@ const ProjectCard = ({
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-300 grayscale group-hover:grayscale-0"
+          className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-all duration-300 grayscale group-hover:grayscale-0"
         />
       </div>
 

@@ -3,51 +3,47 @@ import { useInView } from "react-intersection-observer";
 
 const plans = [
   {
-    name: "Starter",
-    price: "250",
-    description: "Perfect for small businesses and startups",
+    name: "MONTHLY",
+    price: "150",
+    period: "/mo",
+    description: "",
     features: [
-      "Custom Website Design",
-      "Mobile Responsive",
-      "Contact Form",
-      "Basic SEO Setup",
-      "1 Month Free Support",
+      { text: "Design & Development", included: true },
+      { text: "5 Pages", included: true },
+      { text: "On-Page SEO", included: true },
+      { text: "Unlimited Edits", included: true },
+      { text: "Analytics", included: true },
+      { text: "Hosting Included", included: true },
+      { text: "24/7 Support", included: true },
     ],
-    cta: "Get Started",
-    popular: false,
-  },
-  {
-    name: "Professional",
-    price: "800",
-    description: "Ideal for growing businesses",
-    features: [
-      "Everything in Starter",
-      "E-commerce",
-      "Blog Setup",
-      "Advanced SEO",
-      "As many iterations a needed",
-      "3 Months Free Support",
-      "Analytics Integration",
+    addons: [
+      { text: "Free Redesign Every 3 Years", price: "$25/mo" },
+      { text: "Blog", price: "$25/mo" },
     ],
-    cta: "Get Started",
+    cta: "GET STARTED",
     popular: true,
+    highlight: true,
   },
   {
-    name: "Enterprise",
-    price: "Custom",
-    description: "For large businesses with complex needs",
+    name: "ONE-TIME",
+    price: "2449",
+    period: "",
+    description: "",
     features: [
-      "Everything in Professional",
-      "Custom Web Application",
-      "API Development",
-      "Advanced Security",
-      "Performance Optimization",
-      "6 Months Free Support",
-      "Priority Support",
-      "Custom Integrations",
+      { text: "Design & Development", included: true },
+      { text: "5 Pages", included: true },
+      { text: "Analytics", included: true },
+      { text: "24/7 Support", included: false },
     ],
-    cta: "Get Started",
+    addons: [
+      { text: "Hosting", price: "$25/mo" },
+      { text: "Unlimited Edits", price: "$25/mo" },
+      { text: "Additional Pages After 5", price: "$100/each" },
+      { text: "Blog", price: "$250" },
+    ],
+    cta: "GET STARTED",
     popular: false,
+    highlight: false,
   },
 ];
 
@@ -108,70 +104,92 @@ const Pricing = () => {
             variants={containerVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
           >
             {plans.map((plan, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className={`relative bg-white/10 backdrop-blur-md rounded-2xl shadow-lg overflow-hidden border border-white/20 ${
-                  plan.popular ? "ring-2 ring-sky-500 transform scale-105" : ""
+                className={`relative bg-white/10 backdrop-blur-md rounded-2xl shadow-lg overflow-hidden border ${
+                  plan.highlight
+                    ? "border-fuchsia-400/50 ring-2 ring-fuchsia-400/30"
+                    : "border-white/20"
                 }`}
               >
-                {plan.popular && (
-                  <div className="absolute top-0 right-0 bg-gradient-to-r from-sky-500 to-fuchsia-500 text-white px-4 py-1 text-sm font-semibold rounded-bl-lg">
-                    Most Popular
-                  </div>
-                )}
                 <div className="p-8 flex flex-col h-full">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white/95 mb-2">
-                      {plan.name}
-                    </h3>
-                    <div className="mt-4 flex items-baseline text-white/95">
-                      {plan.price === "Custom" ? (
-                        <span className="text-4xl font-bold">Custom</span>
-                      ) : (
-                        <>
-                          <span className="text-4xl font-bold">
-                            ${plan.price}
-                          </span>
-                          <span className="ml-1 text-xl text-white/75">
-                            /project
-                          </span>
-                        </>
-                      )}
+                    <div className="flex items-start justify-between mb-6">
+                      <h3 className="text-3xl font-bold text-white/95">
+                        {plan.name}
+                      </h3>
+                      <div className="text-right">
+                        <div className="text-4xl font-bold text-white/95">
+                          ${plan.price}
+                          {plan.period}
+                        </div>
+                      </div>
                     </div>
-                    <p className="mt-4 text-white/75">{plan.description}</p>
-                    <ul className="mt-8 space-y-4">
+
+                    <ul className="space-y-3">
                       {plan.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-start">
-                          <svg
-                            className="h-6 w-6 text-sky-400 flex-shrink-0"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M5 13l4 4L19 7"
-                            />
-                          </svg>
-                          <span className="ml-3 text-white/75">{feature}</span>
+                          {feature.included ? (
+                            <svg
+                              className="h-6 w-6 text-fuchsia-400 flex-shrink-0"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M5 13l4 4L19 7"
+                              />
+                            </svg>
+                          ) : (
+                            <svg
+                              className="h-6 w-6 text-white/30 flex-shrink-0"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
+                              />
+                            </svg>
+                          )}
+                          <span className="ml-3 text-white/90">
+                            {feature.text}
+                          </span>
                         </li>
                       ))}
                     </ul>
+
+                    {plan.addons && plan.addons.length > 0 && (
+                      <ul className="mt-6 space-y-2 pt-6 border-t border-white/20">
+                        {plan.addons.map((addon, addonIndex) => (
+                          <li
+                            key={addonIndex}
+                            className="flex items-start text-white/90"
+                          >
+                            <span className="font-semibold mr-2 text-fuchsia-400">
+                              + {addon.price}
+                            </span>
+                            <span>{addon.text}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
+
                   <div className="mt-8">
                     <a
                       href="#contact"
-                      className={`block w-full px-6 py-3 text-center text-base font-medium rounded-lg ${
-                        plan.popular
-                          ? "bg-gradient-to-r from-sky-500 to-fuchsia-500 text-white hover:from-sky-600 hover:to-fuchsia-600"
-                          : "bg-white/20 text-white/95 hover:bg-white/30 border border-white/20"
-                      } transition-colors duration-200`}
+                      className="block w-full px-6 py-3 text-center text-base font-semibold rounded-full text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-200 border border-white/20"
                     >
                       {plan.cta}
                     </a>

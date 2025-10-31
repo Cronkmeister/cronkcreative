@@ -130,8 +130,8 @@ const Contact = () => {
                     className={`w-full px-4 py-3 rounded-lg border ${
                       errors.name
                         ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-                        : "border-white/20 focus:ring-sky-500 focus:border-sky-500"
-                    } bg-white/10 backdrop-blur-md text-white placeholder-white/50`}
+                        : "border-white/20 "
+                    } bg-white/10 backdrop-blur-md text-white placeholder-white/50 focus:outline-none focus-visible:outline-none`}
                     placeholder="Your name"
                   />
                   {errors.name && (
@@ -155,8 +155,8 @@ const Contact = () => {
                     className={`w-full px-4 py-3 rounded-lg border ${
                       errors.email
                         ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-                        : "border-white/20 focus:ring-sky-500 focus:border-sky-500"
-                    } bg-white/10 backdrop-blur-md text-white placeholder-white/50`}
+                        : "border-white/20 "
+                    } bg-white/10 backdrop-blur-md text-white placeholder-white/50 focus:outline-none focus-visible:outline-none`}
                     placeholder="your@email.com"
                   />
                   {errors.email && (
@@ -180,8 +180,8 @@ const Contact = () => {
                   className={`w-full px-4 py-3 rounded-lg border ${
                     errors.projectType
                       ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-                      : "border-white/20 focus:ring-sky-500 focus:border-sky-500"
-                  } bg-white/10 backdrop-blur-md text-white`}
+                      : "border-white/20"
+                  } bg-white/10 backdrop-blur-md text-white focus:outline-none focus-visible:outline-none`}
                 >
                   <option value="">Select a project type</option>
                   {projectTypes.map((type) => (
@@ -213,8 +213,8 @@ const Contact = () => {
                   className={`w-full px-4 py-3 rounded-lg border ${
                     errors.message
                       ? "border-red-500 focus:ring-red-500 focus:border-red-500"
-                      : "border-white/20 focus:ring-sky-500 focus:border-sky-500"
-                  } bg-white/10 backdrop-blur-md text-white placeholder-white/50`}
+                      : "border-white/20 "
+                  } bg-white/10 backdrop-blur-md text-white placeholder-white/50 focus:outline-none focus-visible:outline-none`}
                   placeholder="Tell us about your project..."
                 />
                 {errors.message && (
@@ -226,7 +226,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`bg-gradient-to-r from-sky-500 to-fuchsia-500 text-white px-8 py-3 rounded-lg font-medium hover:from-sky-600 hover:to-fuchsia-600 transition-all duration-200 min-w-[200px] ${
+                  className={`bg-white/10  text-white px-8 py-3 rounded-2xl font-medium border-none hover:bg-gradient-to-r hover:from-sky-600 hover:to-fuchsia-600 hover:border-white/20 hover:border transition-all duration-200 min-w-[200px] ${
                     isSubmitting ? "opacity-75 cursor-not-allowed" : ""
                   }`}
                 >

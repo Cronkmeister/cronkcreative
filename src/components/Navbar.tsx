@@ -70,7 +70,7 @@ const Navbar = () => {
     { name: "Pricing", href: "#pricing" },
     { name: "Portfolio", href: "#portfolio" },
     // { name: "Blog", href: "#blog" },
-    { name: "Contact", href: "#contact" },
+    // { name: "Contact", href: "#contact" },
   ];
 
   return (

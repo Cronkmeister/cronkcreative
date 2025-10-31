@@ -1,6 +1,3 @@
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-
 const services = [
   {
     title: "Design",
@@ -68,80 +65,40 @@ const services = [
 ];
 
 const Services = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
   return (
     <div className="section-wrapper bg-transparent">
       <section id="services" className="section">
         <div className="container">
-          <motion.div
-            ref={ref}
-            variants={containerVariants}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="text-center mb-24"
-          >
-            <motion.h2
-              variants={itemVariants}
-              className="text-white/95 font-bold tracking-tight mb-6"
-            >
-              Our Services
-            </motion.h2>
-            <motion.p
-              variants={itemVariants}
-              className="text-white/75 max-w-2xl mx-auto"
-            >
-              We offer a comprehensive range of web design and development
-              services to help your business succeed online.
-            </motion.p>
-          </motion.div>
+          <div>
+            <div>
+              <div className="text-center mb-24">
+                <h2 className="text-white/95 font-bold tracking-tight mb-6">
+                  Our Services
+                </h2>
+                <p className="text-white/75 max-w-2xl mx-auto">
+                  We offer a comprehensive range of web design and development
+                  services to help your business succeed online.
+                </p>
+              </div>
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto"
-          >
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center border border-white/20 hover:bg-white/15 transition-all duration-300 shadow-lg"
-              >
-                <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center text-white mb-6 mx-auto">
-                  {service.icon}
-                </div>
-                <h3 className="text-white/95 font-semibold mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-white/75">{service.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+                {services.map((service, index) => (
+                  <div
+                    key={index}
+                    className="bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center border border-white/20 hover:bg-white/15 transition-all duration-300 shadow-lg"
+                  >
+                    <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center text-white mb-6 mx-auto">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-white/95 font-semibold mb-4">
+                      {service.title}
+                    </h3>
+                    <p className="text-white/75">{service.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

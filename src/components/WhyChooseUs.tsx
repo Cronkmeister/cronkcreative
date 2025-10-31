@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { useEffect, useRef } from "react";
 
 const features = [
@@ -24,10 +22,6 @@ const features = [
 ];
 
 const WhyChooseUs = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -36,116 +30,74 @@ const WhyChooseUs = () => {
     }
   }, []);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
   return (
     <div className="section-wrapper bg-black/50">
       <section id="why-choose-us" className="section">
         <div className="container">
-          <motion.div
-            ref={ref}
-            variants={containerVariants}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="text-center mb-16"
-          >
-            <motion.h2
-              variants={itemVariants}
-              className="text-3xl md:text-4xl font-bold text-white/95 mb-6"
-            >
-              Why Choose Us
-            </motion.h2>
-            <motion.p
-              variants={itemVariants}
-              className="text-xl text-white/75 max-w-3xl mx-auto"
-            >
-              There are plenty of tools to get you started. We can help you
-              finish it.
-            </motion.p>
-          </motion.div>
+          <div>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-white/95 mb-6">
+                Why Choose Us
+              </h2>
+              <p className="text-xl text-white/75 max-w-3xl mx-auto">
+                There are plenty of tools to get you started. We can help you
+                finish it.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-            {/* Left side - Feature cards */}
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              className="space-y-6"
-            >
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 shadow-lg hover:shadow-xl group"
-                >
-                  <div className="flex items-start space-x-4">
-                    <div className="text-3xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
-                      {feature.icon}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-white/95 mb-3">
-                        {feature.title}
-                      </h3>
-                      <p className="text-white/75 leading-relaxed">
-                        {feature.description}
-                      </p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+              {/* Left side - Feature cards */}
+              <div className="space-y-6">
+                {features.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 shadow-lg hover:shadow-xl group"
+                  >
+                    <div className="flex items-start space-x-4">
+                      <div className="text-3xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                        {feature.icon}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold text-white/95 mb-3">
+                          {feature.title}
+                        </h3>
+                        <p className="text-white/75 leading-relaxed">
+                          {feature.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
+                ))}
+              </div>
 
-            {/* Right side - Video */}
-            <motion.div
-              variants={itemVariants}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              className="relative"
-            >
-              <div className="backdrop-blur-md rounded-2xl p-4">
-                <div
-                  className="relative overflow-hidden rounded-xl"
-                  style={{ maxHeight: "500px" }}
-                >
-                  <video
-                    ref={videoRef}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover grayscale"
-                    style={{
-                      objectPosition: "center 60%", // Adjust this to show bottom right area
-                    }}
+              {/* Right side - Video */}
+              <div className="relative">
+                <div className="backdrop-blur-md rounded-2xl p-4">
+                  <div
+                    className="relative overflow-hidden rounded-xl"
+                    style={{ maxHeight: "500px" }}
                   >
-                    <source
-                      src="/src/assets/video/fire-laptop.mp4"
-                      type="video/mp4"
-                    />
-                    Your browser does not support the video tag.
-                  </video>
+                    <video
+                      ref={videoRef}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover grayscale"
+                      style={{
+                        objectPosition: "center 60%", // Adjust this to show bottom right area
+                      }}
+                    >
+                      <source
+                        src="/src/assets/video/fire-laptop.mp4"
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

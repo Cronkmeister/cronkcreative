@@ -15,8 +15,6 @@ const LavaLamp = ({ isDarkMode }: LavaLampProps) => {
         return;
       }
 
-      console.log("Canvas element found:", canvas);
-
       const gl = canvas.getContext("webgl", {
         alpha: true,
         antialias: true,
@@ -28,8 +26,6 @@ const LavaLamp = ({ isDarkMode }: LavaLampProps) => {
         return;
       }
 
-      console.log("WebGL context created successfully");
-
       // Set initial size
       const updateCanvasSize = () => {
         if (!canvas || !gl) {
@@ -37,11 +33,9 @@ const LavaLamp = ({ isDarkMode }: LavaLampProps) => {
           return;
         }
         const rect = canvas.getBoundingClientRect();
-        console.log("Canvas rect:", rect);
         const dpr = window.devicePixelRatio || 1;
         canvas.width = rect.width * dpr;
         canvas.height = rect.height * dpr;
-        console.log("Canvas size set to:", canvas.width, canvas.height);
         gl.viewport(0, 0, canvas.width, canvas.height);
       };
 
@@ -55,8 +49,6 @@ const LavaLamp = ({ isDarkMode }: LavaLampProps) => {
       const initialDpr = window.devicePixelRatio || 1;
       let width = initialRect.width * initialDpr;
       let height = initialRect.height * initialDpr;
-
-      console.log("Initial dimensions:", width, height);
 
       let mouse = { x: width / 2, y: height / 2 };
       function onMouseMove(e: MouseEvent) {
@@ -140,11 +132,6 @@ const LavaLamp = ({ isDarkMode }: LavaLampProps) => {
           gl.deleteShader(shader);
           return null;
         }
-        console.log(
-          type === gl.VERTEX_SHADER
-            ? "Vertex shader compiled successfully"
-            : "Fragment shader compiled successfully"
-        );
         return shader;
       }
 
@@ -235,7 +222,6 @@ const LavaLamp = ({ isDarkMode }: LavaLampProps) => {
         console.error("Program link error:", gl.getProgramInfoLog(program));
         return;
       }
-      console.log("Shader program linked successfully");
 
       gl.useProgram(program);
 
@@ -246,15 +232,6 @@ const LavaLamp = ({ isDarkMode }: LavaLampProps) => {
       const u_circlesColor = gl.getUniformLocation(program, "u_circlesColor");
       const u_circlesPosRad = gl.getUniformLocation(program, "u_circlesPosRad");
       const u_mouse = gl.getUniformLocation(program, "u_mouse");
-
-      console.log("Uniform locations:", {
-        u_resolution,
-        u_darkMode,
-        u_circleCount,
-        u_circlesColor,
-        u_circlesPosRad,
-        u_mouse,
-      });
 
       if (
         !u_resolution ||
@@ -281,19 +258,12 @@ const LavaLamp = ({ isDarkMode }: LavaLampProps) => {
       gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
 
       const a_position = gl.getAttribLocation(program, "a_position");
-      console.log("a_position location:", a_position);
       if (a_position === -1) {
         console.error("a_position attribute not found in shader");
         return;
       }
       gl.enableVertexAttribArray(a_position);
       gl.vertexAttribPointer(a_position, 2, gl.FLOAT, false, 0, 0);
-      console.log("a_position attribute enabled and pointer set");
-
-      // Add this log to see if we reach here
-      console.log("Reached after attribute setup");
-      console.log("About to start render loop...");
-      console.log("Starting render loop");
 
       // Restore updateCircles logic
       function updateCircles() {

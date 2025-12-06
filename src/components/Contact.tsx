@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { sendContactEmail } from "../utils/emailHandler";
 
 const projectTypes = [
   "Starter Site",
@@ -68,12 +69,19 @@ const Contact = () => {
     setSubmitStatus("idle");
 
     try {
-      // Replace with your actual form submission logic
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", projectType: "", message: "" });
+      const result = await sendContactEmail(formData);
+
+      if (result.success) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", projectType: "", message: "" });
+        console.log("Email sent successfully:", result.data);
+      } else {
+        setSubmitStatus("error");
+        console.error("Email failed:", result.error);
+      }
     } catch (error) {
       setSubmitStatus("error");
+      console.error("Error submitting form:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -226,7 +234,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`bg-white/10  text-white px-8 py-3 rounded-2xl font-medium border-none hover:bg-gradient-to-r hover:from-sky-600 hover:to-fuchsia-600 hover:border-white/20 hover:border transition-all duration-200 min-w-[200px] ${
+                  className={`bg-white/10  text-white hover:text-white px-8 py-3 rounded-2xl font-medium border-none hover:bg-purple-500/40 hover:border-white/20 hover:border transition-all duration-200 min-w-[200px] ${
                     isSubmitting ? "opacity-75 cursor-not-allowed" : ""
                   }`}
                 >

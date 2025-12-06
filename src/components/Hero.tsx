@@ -20,7 +20,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-full text-sm font-medium text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-200 border border-white/20"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-full text-sm font-medium text-white hover:text-white bg-white/10 hover:bg-purple-500/40 hover:border-purple-500/10 backdrop-blur-sm transition-all duration-200 border border-white/20"
               >
                 Start Your Project
               </a>

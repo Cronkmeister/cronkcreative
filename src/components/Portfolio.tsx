@@ -194,7 +194,7 @@ const Portfolio = () => {
             <div className="mt-12 text-center">
               <button
                 onClick={() => setShowAll(!showAll)}
-                className="px-8 py-3 rounded-full text-sm font-medium text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-200 border border-white/20"
+                className="px-8 py-3 rounded-full text-sm font-medium text-white hover:text-white bg-white/10 hover:bg-purple-500/40 hover:border-white/20 hover:border backdrop-blur-sm transition-all duration-200 border border-white/20"
               >
                 {showAll ? "Show Less" : "View More"}
               </button>

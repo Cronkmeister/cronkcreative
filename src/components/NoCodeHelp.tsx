@@ -168,7 +168,7 @@ const NoCodeHelp = () => {
             >
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-md text-white rounded-lg font-medium hover:bg-white/20 transition-colors border border-white/20"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-md text-white hover:text-white rounded-2xl font-medium hover:bg-purple-500/40 transition-colors "
               >
                 Book a Free Review
                 <svg

@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "netlify-cli": "^23.12.3",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "resend": "^6.5.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

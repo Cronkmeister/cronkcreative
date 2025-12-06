@@ -99,7 +99,7 @@ const Navbar = () => {
             ))}
             <a
               href="#contact"
-              className="px-6 py-2.5 rounded-full text-sm font-medium text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-200"
+              className="px-6 py-2.5 rounded-full text-sm font-medium text-white hover:text-white bg-white/10 hover:bg-purple-500/40  backdrop-blur-sm transition-all duration-200"
             >
               Start Your Project
             </a>
@@ -107,7 +107,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden px-4 py-2 rounded-md text-white bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm shadow transition-all duration-200"
+            className="md:hidden px-4 py-2 rounded-md text-white hover:text-white bg-white/10 hover:bg-purple-500/40 hover:border-white/20 hover:border border border-white/20 backdrop-blur-sm shadow transition-all duration-200"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <svg
@@ -149,7 +149,7 @@ const Navbar = () => {
               ))}
               <a
                 href="#contact"
-                className="block w-full text-center px-4 py-2 rounded-full text-sm font-semibold text-gray-900 dark:text-white bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm transition-all duration-200 mt-4 shadow"
+                className="block w-full text-center px-4 py-2 rounded-full text-sm font-semibold text-gray-900 dark:text-white hover:text-white bg-white/10 hover:bg-purple-500/40 hover:border-white/20 hover:border border border-white/20 backdrop-blur-sm transition-all duration-200 mt-4 shadow"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Start Your Project

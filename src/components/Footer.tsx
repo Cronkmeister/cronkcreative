@@ -34,7 +34,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <a href="#" className="inline-block">
+            <a href="#" className="inline-flex items-center space-x-2">
+              <img
+                src="/images/logo/cc-logo-no-bg.png"
+                alt="Cronk Creative Logo"
+                className="h-10 w-auto"
+              />
               <span className="text-2xl font-display font-bold text-white/95">
                 Cronk Creative
               </span>

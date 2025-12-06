@@ -75,7 +75,7 @@ const Pricing = () => {
   };
 
   return (
-    <div className="section-wrapper bg-transparent">
+    <div className="section-wrapper bg-black/70">
       <section id="pricing" className="section">
         <div className="container">
           <motion.div

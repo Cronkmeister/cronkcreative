@@ -87,6 +87,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#" className="flex items-center space-x-2">
+            <img
+              src="/images/logo/cc-logo-no-bg.png"
+              alt="Cronk Creative Logo"
+              className="h-10 w-auto"
+            />
             <span className="text-xl font-display font-bold text-white">
               Cronk Creative
             </span>

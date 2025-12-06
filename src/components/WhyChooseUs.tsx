@@ -88,10 +88,7 @@ const WhyChooseUs = () => {
                         objectPosition: "center 60%", // Adjust this to show bottom right area
                       }}
                     >
-                      <source
-                        src="/src/assets/video/fire-laptop.mp4"
-                        type="video/mp4"
-                      />
+                      <source src="/video/fire-laptop.mp4" type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
